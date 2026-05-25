@@ -12,7 +12,7 @@ import TestimonialsPage from './pages/TestimonialsPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-orange-50 font-sans text-blue-900 selection:bg-orange-200 lg:border-8 border-white flex flex-col">
+    <div className="min-h-screen bg-orange-50 font-sans text-blue-900 selection:bg-orange-200 flex flex-col">
       <ScrollToTop />
       <Header />
       <main className="flex-1 flex flex-col">
