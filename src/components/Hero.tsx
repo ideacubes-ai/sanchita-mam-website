@@ -71,9 +71,9 @@ export default function Hero() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-[4.5rem] font-black leading-[0.9] tracking-tight text-blue-900 uppercase relative"
           >
-            Building <span className="relative inline-block text-orange-500">
+            Building <span className="relative inline-block text-orange-500 z-10">
               Confident
-              <svg className="absolute w-[110%] h-4 md:h-6 text-yellow-400 -bottom-1 md:-bottom-2 -left-2 z-[-1]" viewBox="0 0 100 20" preserveAspectRatio="none">
+              <svg className="absolute w-[110%] h-4 md:h-6 text-yellow-400 -bottom-1 md:-bottom-2 -left-2 -z-10" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path d="M0,15 Q50,25 100,5" stroke="currentColor" strokeWidth="8" fill="none" strokeLinecap="round" />
               </svg>
             </span><br/>Readers<br/>Everyday!
