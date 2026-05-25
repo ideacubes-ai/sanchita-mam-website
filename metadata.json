@@ -1,0 +1,8 @@
+{
+  "name": "Sanchita Mam\u0027s English Classes",
+  "description": "Interactive live phonics classes for kids aged 4-7. Engaging games, colorful resources, and expert teachers to help children learn to read.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

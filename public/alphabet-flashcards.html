@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alphabet Flashcards</title>
+  <style>
+    body { font-family: 'Comic Sans MS', 'Inter', sans-serif; background-color: #f0fdf4; margin: 0; padding: 20px; }
+    h1 { text-align: center; color: #166534; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; mx-auto; justify-content: center; align-items: center; }
+    .card { background: white; border: 4px solid #86efac; border-radius: 20px; padding: 40px 20px; text-align: center; box-shadow: 4px 4px 0 #86efac; }
+    .letter { font-size: 80px; font-weight: 900; color: #15803d; margin: 0; line-height: 1; }
+    .word { font-size: 24px; color: #14532d; font-weight: bold; text-transform: uppercase; margin-top: 10px; }
+    .emoji { font-size: 60px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>A-Z Alphabet Flashcards</h1>
+  <div style="display: flex; justify-content: center;">
+    <div class="grid">
+      <div class="card"><div class="emoji">🍎</div><div class="letter">A</div><div class="word">Apple</div></div>
+      <div class="card"><div class="emoji">🐻</div><div class="letter">B</div><div class="word">Bear</div></div>
+      <div class="card"><div class="emoji">🐱</div><div class="letter">C</div><div class="word">Cat</div></div>
+      <div class="card"><div class="emoji">🐶</div><div class="letter">D</div><div class="word">Dog</div></div>
+      <!-- Add more as needed, but this is a good sample! -->
+    </div>
+  </div>
+</body>
+</html>

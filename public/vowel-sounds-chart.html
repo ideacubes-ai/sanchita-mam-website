@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vowel Sounds Chart</title>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #fffaf0; margin: 0; padding: 20px; text-align: center; }
+    h1 { color: #c2410c; font-size: 40px; margin-bottom: 40px; }
+    .chart { display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto; }
+    .row { display: flex; gap: 20px; background: white; border: 4px solid #fed7aa; border-radius: 20px; padding: 20px; align-items: center; box-shadow: 4px 4px 0 #fed7aa; }
+    .vowel { font-size: 60px; font-weight: 900; color: #ea580c; width: 100px; }
+    .sounds { display: flex; gap: 20px; flex: 1; justify-content: space-around; }
+    .sound-item { display: flex; flex-direction: column; align-items: center; }
+    .word { font-size: 24px; font-weight: bold; color: #9a3412; }
+    .type { font-size: 14px; text-transform: uppercase; color: #fdba74; font-weight: bold; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <h1>Vowel Sounds Chart</h1>
+  <div class="chart">
+    <div class="row">
+      <div class="vowel">Aa</div>
+      <div class="sounds">
+        <div class="sound-item"><span class="type">Short</span><span class="word">🍎 Apple</span></div>
+        <div class="sound-item"><span class="type">Long</span><span class="word">🦍 Ape</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="vowel">Ee</div>
+      <div class="sounds">
+        <div class="sound-item"><span class="type">Short</span><span class="word">🐘 Elephant</span></div>
+        <div class="sound-item"><span class="type">Long</span><span class="word">🦅 Eagle</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="vowel">Ii</div>
+      <div class="sounds">
+        <div class="sound-item"><span class="type">Short</span><span class="word">🦎 Iguana</span></div>
+        <div class="sound-item"><span class="type">Long</span><span class="word">🧊 Ice</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="vowel">Oo</div>
+      <div class="sounds">
+        <div class="sound-item"><span class="type">Short</span><span class="word">🐙 Octopus</span></div>
+        <div class="sound-item"><span class="type">Long</span><span class="word">🌊 Ocean</span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="vowel">Uu</div>
+      <div class="sounds">
+        <div class="sound-item"><span class="type">Short</span><span class="word">☔ Umbrella</span></div>
+        <div class="sound-item"><span class="type">Long</span><span class="word">🦄 Unicorn</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

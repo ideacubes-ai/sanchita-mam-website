@@ -1,0 +1,13 @@
+dist
+files.txt
+files2.txt
+files3.txt
+index.html
+metadata.json
+node_modules
+package-lock.json
+package.json
+public
+src
+tsconfig.json
+vite.config.ts
