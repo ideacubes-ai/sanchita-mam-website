@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Gift, Calendar, ArrowRight, User, Mail, CheckCircle2, Star, BookOpen, Home } from 'lucide-react';
+import { Gift, Calendar, ArrowRight, User, Mail, CheckCircle2, Star, BookOpen, Home, Clock } from 'lucide-react';
 
 const DATES = [
   { month: 'May', day: '23', active: true },
@@ -94,6 +94,10 @@ export default function BookTrialPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedTime) {
+      alert("Please select a time for the trial class.");
+      return;
+    }
     setIsSubmitted(true);
   };
 
@@ -270,6 +274,7 @@ export default function BookTrialPage() {
                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                      <input 
                        type="text" 
+                       required
                        placeholder="First Name*" 
                        className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl pl-12 pr-4 py-4 focus:outline-none focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all placeholder:text-gray-400 font-medium text-gray-900"
                      />
@@ -282,6 +287,7 @@ export default function BookTrialPage() {
                    <div className="relative">
                      <BookOpen className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                      <select 
+                        required
                         defaultValue=""
                         className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl pl-12 pr-4 py-4 focus:outline-none focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all appearance-none cursor-pointer font-medium text-gray-900"
                      >
@@ -301,6 +307,7 @@ export default function BookTrialPage() {
                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                    <input 
                      type="email" 
+                     required
                      placeholder="parent@example.com*" 
                      className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl pl-12 pr-4 py-4 focus:outline-none focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 transition-all placeholder:text-gray-400 font-medium text-gray-900"
                    />
@@ -320,6 +327,7 @@ export default function BookTrialPage() {
                    </select>
                    <input 
                      type="tel" 
+                     required
                      placeholder="Phone Number*" 
                      className="flex-1 bg-transparent px-4 py-4 outline-none placeholder:text-gray-400 font-medium text-gray-900 w-full"
                    />
@@ -414,16 +422,28 @@ export default function BookTrialPage() {
 
                  {timezone !== 'Asia/Kolkata' && selectedTime && (
                    <motion.div 
-                     initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}
-                     className="bg-orange-50 text-orange-800 p-4 rounded-xl border border-orange-100 flex items-start gap-3"
+                     initial={{ opacity: 0, scale: 0.95 }}
+                     animate={{ opacity: 1, scale: 1 }}
+                     className="bg-blue-50 text-blue-900 p-4 sm:p-5 rounded-2xl border-2 border-blue-200 flex flex-col sm:flex-row items-center gap-4 shadow-sm mt-6"
                    >
-                     <p className="text-sm font-medium">
-                       <strong>Note for {timezone}:</strong> The class you selected at <strong>{selectedTime}</strong> corresponds to <strong>{convertToKolkataTime(selectedTime, timezone)} in Kolkata Time</strong>. The teacher accommodates this time!
-                     </p>
+                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center shrink-0 shadow-inner">
+                       <Clock className="w-6 h-6 text-blue-600" />
+                     </div>
+                     <div className="text-center sm:text-left flex-1">
+                       <p className="text-sm sm:text-base font-medium">
+                         Your selected time <strong>{selectedTime} ({timezone})</strong> corresponds to <strong className="text-lg bg-white px-2 py-0.5 rounded shadow-sm inline-block mx-1 text-blue-700">{convertToKolkataTime(selectedTime, timezone)}</strong> in Kolkata time.
+                       </p>
+                       <p className="text-blue-700/80 text-xs sm:text-sm mt-1.5 font-bold tracking-wide uppercase">
+                         Sanchita will take the class based on Kolkata time. This will be mentioned in your booked confirmation.
+                       </p>
+                     </div>
                    </motion.div>
                  )}
                </div>
 
+               <input type="hidden" name="Teacher_Time_Kolkata" value={selectedTime ? convertToKolkataTime(selectedTime, timezone) : ''} />
+               <input type="hidden" name="Student_Time_Local" value={selectedTime ? `${selectedTime} (${timezone})` : ''} />
+               
                <button 
                  type="submit"
                  className="w-full bg-blue-600 text-white mt-10 py-5 rounded-2xl font-black text-lg sm:text-xl uppercase tracking-widest shadow-[0_8px_0px_#1e3a8a] flex items-center justify-center gap-3 hover:bg-blue-500 transition-all active:translate-y-2 active:shadow-[0_0px_0px_#1e3a8a]"
