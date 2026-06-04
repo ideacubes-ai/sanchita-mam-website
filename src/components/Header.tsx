@@ -9,21 +9,21 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-orange-50/90 backdrop-blur-md border-b-2 border-orange-100">
       <div className="max-w-7xl mx-auto px-4 lg:px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-1.5 text-blue-900 font-sans text-xl md:text-2xl font-black uppercase tracking-tighter -ml-2 z-50">
+        <Link to="/" className="flex items-center gap-2 md:gap-3 text-blue-900 font-sans font-black uppercase tracking-tighter z-50">
           <motion.div
             animate={{ rotate: [0, -10, 10, -10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
           >
-            <BookOpen className="w-6 h-6 md:w-8 md:h-8 text-blue-600 fill-blue-600" />
+            <BookOpen className="w-8 h-8 md:w-10 md:h-10 text-blue-600 fill-blue-600" />
           </motion.div>
-          <div className="flex flex-col sm:flex-row sm:items-baseline gap-1">
-            <span>Sanchita Mam's</span>
-            <span className="text-orange-500 text-sm sm:text-2xl">Reading Classes</span>
+          <div className="flex flex-col items-start justify-center pt-1">
+            <span className="text-xl md:text-2xl leading-[0.85]">Sanchita Mam's</span>
+            <span className="text-orange-500 text-xs md:text-sm tracking-widest mt-1">Reading Classes</span>
           </div>
         </Link>
         
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6 font-bold text-sm tracking-widest uppercase text-blue-900 whitespace-nowrap">
-          <Link to="/" className="hover:text-orange-500 transition-colors">Home</Link>
+        <nav className="hidden xl:flex items-center gap-4 xl:gap-5 font-bold text-sm tracking-widest uppercase text-blue-900 whitespace-nowrap">
+          <Link to="/about" className="hover:text-orange-500 transition-colors">About Us</Link>
           <Link to="/games" className="hover:text-orange-500 transition-colors">Games</Link>
           <Link to="/videos" className="hover:text-orange-500 transition-colors">Videos</Link>
           <Link to="/guide" className="hover:text-orange-500 transition-colors">Parent Guide</Link>
@@ -41,7 +41,7 @@ export default function Header() {
           </Link>
 
           <button 
-            className="lg:hidden p-2 text-blue-900 z-50 relative"
+            className="xl:hidden p-2 text-blue-900 z-50 relative"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
           >
@@ -56,10 +56,10 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-orange-50 border-b-2 border-orange-100 shadow-xl flex flex-col font-black text-blue-900 lg:hidden"
+            className="absolute top-full left-0 w-full bg-orange-50 border-b-2 border-orange-100 shadow-xl flex flex-col font-black text-blue-900 xl:hidden"
           >
             <nav className="flex flex-col py-6 px-6 gap-6 uppercase tracking-widest">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Home</Link>
+              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">About Us</Link>
               <Link to="/games" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Games</Link>
               <Link to="/videos" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Videos</Link>
               <Link to="/guide" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Parent Guide</Link>

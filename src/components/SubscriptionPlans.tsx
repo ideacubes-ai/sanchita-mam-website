@@ -5,11 +5,11 @@ import { CheckCircle2 } from 'lucide-react';
 const plans = [
   {
     name: 'Introductory',
-    classes: '36 Classes',
+    classes: '24 Classes',
     duration: '3 Months',
     pricing: {
-      inr: { current: '₹37,000', original: '₹55,500', perClass: '₹1,027/class' },
-      usd: { current: '$455', original: '$682.5', perClass: '$13/class' },
+      inr: { current: '₹24,000', original: '₹36,000', perClass: '₹1,000/class' },
+      usd: { current: '$288', original: '$432', perClass: '$12/class' },
     },
     features: [
       'Certificate (Level 1)',
@@ -24,11 +24,11 @@ const plans = [
   },
   {
     name: 'Basic',
-    classes: '72 Classes',
+    classes: '48 Classes',
     duration: '6 Months',
     pricing: {
-      inr: { current: '₹71,000', original: '₹106,500', perClass: '₹986/class' },
-      usd: { current: '$864', original: '$1296', perClass: '$12/class' },
+      inr: { current: '₹48,000', original: '₹72,000', perClass: '₹1,000/class' },
+      usd: { current: '$576', original: '$864', perClass: '$12/class' },
     },
     features: [
       'Certificate (2 Levels)',
@@ -44,11 +44,11 @@ const plans = [
   },
   {
     name: 'Advanced',
-    classes: '144 Classes',
-    duration: '12 Months',
+    classes: '96 Classes',
+    duration: '1 Year',
     pricing: {
-      inr: { current: '₹130,000', original: '₹195,000', perClass: '₹902/class' },
-      usd: { current: '$1584', original: '$2376', perClass: '$11/class' },
+      inr: { current: '₹83,000', original: '₹124,500', perClass: '₹864/class' },
+      usd: { current: '$1000', original: '$1500', perClass: '$10/class' },
     },
     features: [
       'Certificate (4 Levels)',

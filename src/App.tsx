@@ -9,6 +9,7 @@ import PhonicsGuidePage from './pages/PhonicsGuidePage';
 import VideosPage from './pages/VideosPage';
 import ContactUsPage from './pages/ContactUsPage';
 import TestimonialsPage from './pages/TestimonialsPage';
+import AboutUsPage from './pages/AboutUsPage';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <main className="flex-1 flex flex-col">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
           <Route path="/games" element={<GamesPage />} />
           <Route path="/book-trial" element={<BookTrialPage />} />
           <Route path="/guide" element={<PhonicsGuidePage />} />
