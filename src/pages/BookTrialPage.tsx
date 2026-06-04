@@ -32,6 +32,59 @@ const TIMEZONES = [
   'Europe/Berlin'
 ];
 
+const convertToKolkataTime = (timeStr: string, fromTz: string) => {
+  if (!timeStr) return "";
+  
+  const getOffsetInMinutes = (tz: string) => {
+    try {
+      const now = new Date();
+      const utcStr = now.toLocaleString("en-US", { timeZone: "UTC" });
+      const tzStr = now.toLocaleString("en-US", { timeZone: tz });
+      return Math.round((new Date(tzStr).getTime() - new Date(utcStr).getTime()) / 60000);
+    } catch (e) {
+      return 0;
+    }
+  };
+
+  const offsetFrom = getOffsetInMinutes(fromTz);
+  const offsetTo = getOffsetInMinutes('Asia/Kolkata'); // 330
+  const diff = offsetTo - offsetFrom;
+
+  if (diff === 0) return timeStr;
+
+  const [time, modifier] = timeStr.split(' ');
+  let [hours, minutes] = time.split(':').map(Number);
+  
+  if (hours === 12) {
+    hours = modifier === 'PM' ? 12 : 0;
+  } else if (modifier === 'PM') {
+    hours += 12;
+  }
+
+  let totalMins = hours * 60 + minutes + diff;
+  let dayOffset = "";
+  
+  if (totalMins >= 1440) {
+    totalMins -= 1440;
+    dayOffset = " (Next day)";
+  } else if (totalMins < 0) {
+    totalMins += 1440;
+    dayOffset = " (Previous day)";
+  }
+
+  let newH = Math.floor(totalMins / 60);
+  const newM = totalMins % 60;
+  const newMod = newH >= 12 ? 'PM' : 'AM';
+  
+  newH = newH % 12;
+  if (newH === 0) newH = 12;
+
+  const padM = newM < 10 ? '0' + newM : newM;
+  const padH = newH < 10 ? '0' + newH : newH;
+
+  return `${padH}:${padM} ${newMod}${dayOffset}`;
+};
+
 export default function BookTrialPage() {
   const [selectedDate, setSelectedDate] = useState('23');
   const [selectedTime, setSelectedTime] = useState('');
@@ -165,9 +218,22 @@ export default function BookTrialPage() {
                    🎉
                  </motion.div>
                  <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 tracking-tight">Woohoo! You're In!</h2>
-                 <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-lg mx-auto">
+                 <p className="text-xl text-gray-600 mb-6 leading-relaxed max-w-lg mx-auto">
                    High five! 🙌 Your trial class is officially locked in. Our most highly-trained carrier pigeons 🐦 are currently flying to your inbox with the class link and details.
                  </p>
+                 
+                 {selectedTime && (
+                   <div className="bg-purple-100/50 rounded-2xl p-4 md:p-6 mb-8 inline-block shadow-sm">
+                     <p className="text-sm font-bold text-purple-800 tracking-widest uppercase mb-1">Your Booking Time</p>
+                     <p className="text-2xl font-black text-gray-900 mb-2">May {selectedDate} at {selectedTime} ({timezone})</p>
+                     {timezone !== 'Asia/Kolkata' && (
+                       <p className="text-lg font-bold text-orange-600">
+                         🕒 Class will happen at {convertToKolkataTime(selectedTime, timezone)} (Kolkata Time)
+                       </p>
+                     )}
+                   </div>
+                 )}
+
                  <div className="bg-purple-50 rounded-3xl p-6 mb-10 border-2 border-purple-100">
                    <p className="text-purple-800 font-bold mb-2">What happens next?</p>
                    <p className="text-purple-600 text-sm font-medium">Keep an eye out for a WhatsApp message from our team. We might ask you for your child's favorite dinosaur! 🦕</p>
@@ -326,7 +392,7 @@ export default function BookTrialPage() {
                  </div>
 
                  {/* Times */}
-                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4 gap-3 mb-4">
                    {TIME_SLOTS.map((time) => {
                      const isActive = selectedTime === time;
                      return (
@@ -345,6 +411,17 @@ export default function BookTrialPage() {
                      );
                    })}
                  </div>
+
+                 {timezone !== 'Asia/Kolkata' && selectedTime && (
+                   <motion.div 
+                     initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }}
+                     className="bg-orange-50 text-orange-800 p-4 rounded-xl border border-orange-100 flex items-start gap-3"
+                   >
+                     <p className="text-sm font-medium">
+                       <strong>Note for {timezone}:</strong> The class you selected at <strong>{selectedTime}</strong> corresponds to <strong>{convertToKolkataTime(selectedTime, timezone)} in Kolkata Time</strong>. The teacher accommodates this time!
+                     </p>
+                   </motion.div>
+                 )}
                </div>
 
                <button 
