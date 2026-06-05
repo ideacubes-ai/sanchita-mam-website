@@ -27,7 +27,7 @@ export default function Header() {
           <Link to="/games" className="hover:text-orange-500 transition-colors">Games</Link>
           <Link to="/videos" className="hover:text-orange-500 transition-colors">Videos</Link>
           <Link to="/guide" className="hover:text-orange-500 transition-colors">Parent Guide</Link>
-          <a href="/#pricing" className="hover:text-orange-500 transition-colors">Pricing</a>
+          <Link to="/#pricing" className="hover:text-orange-500 transition-colors">Pricing</Link>
           <Link to="/contact" className="hover:text-orange-500 transition-colors">Contact Us</Link>
         </nav>
 
@@ -63,7 +63,7 @@ export default function Header() {
               <Link to="/games" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Games</Link>
               <Link to="/videos" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Videos</Link>
               <Link to="/guide" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Parent Guide</Link>
-              <a href="/#pricing" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Pricing</a>
+              <Link to="/#pricing" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Pricing</Link>
               <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-orange-500 transition-colors">Contact Us</Link>
               
               <Link 
