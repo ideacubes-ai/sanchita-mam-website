@@ -6,7 +6,7 @@ import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
 const faqs = [
   {
     question: "What if my child misses a class?",
-    answer: "Don't worry! We provide recorded sessions for all our classes so your child can catch up at their own pace. You can access these recordings anytime through the student portal."
+    answer: "Don't worry! We'll try to arrange an alternative class for your child to make up for the missed session. If that's not possible, we'll share a video recording of the class they missed."
   },
   {
     question: "How do I track my child's progress?",

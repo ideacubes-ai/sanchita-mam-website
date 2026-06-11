@@ -136,7 +136,7 @@ export default function Hero() {
                   <img
                     src="/reading_girl_hero.jpeg"
                     alt="Happy kids learning"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 block scale-[1.01] group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function Hero() {
                   <img
                     src="/reading_boy_hero.jpeg"
                     alt="Boy reading a book"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 block scale-[1.01] group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                 </div>

@@ -33,12 +33,14 @@ export default function PerfectFit() {
             <div className="absolute inset-0 bg-yellow-400 rounded-[2.5rem] transform rotate-3 scale-[1.02] z-0" />
             <div className="absolute inset-0 bg-pink-400 rounded-[2.5rem] transform -rotate-2 scale-[1.02] z-0" />
             
-            <div className="relative rounded-[2rem] overflow-hidden border-8 border-white shadow-2xl z-10 bg-white">
-              <img 
-                src="/arabina-girl-phonics-class.jpeg" 
-                alt="Teacher and student in phonics class" 
-                className="w-full h-auto object-cover aspect-[4/3] transform hover:scale-105 transition-transform duration-700"
-              />
+            <div className="relative rounded-[2rem] bg-white shadow-2xl p-2 z-10 aspect-[4/3]">
+              <div className="w-full h-full rounded-[1.5rem] overflow-hidden relative">
+                <img 
+                  src="/arabina-girl-phonics-class.jpeg" 
+                  alt="Teacher and student in phonics class" 
+                  className="w-full h-full object-cover block transform scale-[1.01] hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
             
             {/* Floating Badge */}

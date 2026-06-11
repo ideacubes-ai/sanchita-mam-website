@@ -161,7 +161,7 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="flex gap-4 items-start bg-blue-800/50 p-6 rounded-2xl border border-blue-700 hover:border-orange-500 hover:bg-blue-800 transition-colors"
+                className="flex gap-4 items-start bg-blue-800/50 p-6 rounded-2xl border border-blue-700 hover:border-orange-500 hover:bg-green-500 transition-colors"
               >
                 <div className="w-8 h-8 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center shrink-0 mt-0.5">
                   <CheckCircle2 className="w-6 h-6" />
